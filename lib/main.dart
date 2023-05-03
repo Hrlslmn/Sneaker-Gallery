@@ -205,7 +205,7 @@ class _NinjaCardState extends State<NinjaCard> {
                                             incrementCounter()
                                           },
                                           style:ElevatedButton.styleFrom(
-                                              primary: Colors.orange[800],
+                                              backgroundColor: Colors.orange[800],
                                         ),
                                           child: const Text(
                                             "Buy Now",
@@ -261,7 +261,7 @@ class _NinjaCardState extends State<NinjaCard> {
                                           incrementCounter()
                                         },
                                         style:ElevatedButton.styleFrom(
-                                          primary: Colors.orange[800],
+                                          backgroundColor: Colors.orange[800],
                                         ),
                                         child: const Text(
                                           "Buy Now",
