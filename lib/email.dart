@@ -1,19 +1,20 @@
-//* Product Page
+//* Email Page
 import 'package:flutter/material.dart';
 
-class Products extends StatefulWidget {
-  const Products({super.key});
+class Email extends StatefulWidget {
+  const Email({super.key});
   @override
-  State<Products> createState() => _ProductsState();
+  State<Email> createState() => _EmailState();
 }
-class _ProductsState extends State<Products>{
+
+class _EmailState extends State<Email>{
   @override
   Widget build(BuildContext context) {
   return Scaffold(
     backgroundColor: const Color.fromARGB(255, 231, 197, 105),
     appBar: AppBar(
       title: const Text(
-        'PRODUCTS',
+        'EMAIL US',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -27,4 +28,3 @@ class _ProductsState extends State<Products>{
   );
 }
 }
-

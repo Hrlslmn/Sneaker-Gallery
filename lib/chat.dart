@@ -1,19 +1,20 @@
-//* Product Page
+//* Chat Page
 import 'package:flutter/material.dart';
 
-class Products extends StatefulWidget {
-  const Products({super.key});
+class Chat extends StatefulWidget {
+  const Chat({super.key});
   @override
-  State<Products> createState() => _ProductsState();
+  State<Chat> createState() => _ChatState();
 }
-class _ProductsState extends State<Products>{
+
+class _ChatState extends State<Chat>{
   @override
   Widget build(BuildContext context) {
   return Scaffold(
     backgroundColor: const Color.fromARGB(255, 231, 197, 105),
     appBar: AppBar(
       title: const Text(
-        'PRODUCTS',
+        'LIVE CHAT',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -23,8 +24,7 @@ class _ProductsState extends State<Products>{
       centerTitle: true,
       backgroundColor: Colors.orange[800],
       elevation: 1,
-    ),
-  );
+      ),
+    );
+  }
 }
-}
-

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
 
+import 'cart.dart';
+import 'chat.dart';
+import 'products.dart';
+import 'email.dart';
+
 void main() {
   runApp(const MaterialApp(
     home: NinjaCard(),
@@ -9,7 +14,6 @@ void main() {
 
 class NinjaCard extends StatefulWidget {
   const NinjaCard({Key? key}) : super(key: key);
-
   @override
   State<NinjaCard> createState() => _NinjaCardState();
 }
@@ -22,21 +26,42 @@ class _NinjaCardState extends State<NinjaCard> {
     });
   }
 
-  void _navigateToNextScreen(BuildContext context) {
+  //*Navigate to product page function
+  void _navigateToProducts(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => NewScreen()));
+        .push(MaterialPageRoute(builder: (context) => const Products()));
+  }
+
+  //*Navigate to cart page function
+  void _navigateToCart(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Cart()));
+  }
+
+  //*Navigate to email page function
+  void _navigateToEmail(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Email()));
+  }
+
+  //*Navigate to live chat page function
+  void _navigateToLiveChat(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Chat()));
   }
 
   @override
+  //*Main page
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 231, 197, 105),
+      //* Mainpage Appbar widget
       appBar: AppBar(
         title: const Text(
-          'KEDAI KASUT',
+          'SHOE HUB',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Color.fromARGB(255, 255, 255, 255),
             fontFamily: 'Archivo',
           ),
         ),
@@ -52,31 +77,39 @@ class _NinjaCardState extends State<NinjaCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                //*View cart button
                 Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.orange[800],
-                            border: Border.all(width: 1, color: Colors.white),
-                            borderRadius: BorderRadius.circular(200)),
-                        width: 60,
-                        height: 60,
-                        child: const HeroIcon(
-                          HeroIcons.shoppingCart,
-                          color: Colors.white,
-                          size: 30,
+                      child: GestureDetector(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.orange[800],
+                              border: Border.all(width: 1, color: Colors.white),
+                              borderRadius: BorderRadius.circular(200)),
+                          width: 60,
+                          height: 60,
+                          child: const HeroIcon(
+                            HeroIcons.shoppingCart,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
+                        onTap: () {
+                          _navigateToCart(context);
+                        },
                       ),
                     ),
                     const Text(
                       "View Cart",
-                      style:
-                          TextStyle(color: Colors.white, fontFamily: "Archivo"),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 253, 109, 31),
+                          fontFamily: "Archivo"),
                     )
                   ],
                 ),
+                //*Products button
                 Column(
                   children: [
                     Padding(
@@ -96,81 +129,96 @@ class _NinjaCardState extends State<NinjaCard> {
                           ),
                         ),
                         onTap: () {
-                          _navigateToNextScreen(context);
+                          _navigateToProducts(context);
                         },
                       ),
                     ),
                     const Text(
                       "Products",
-                      style:
-                          TextStyle(color: Colors.white, fontFamily: "Archivo"),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 253, 109, 31),
+                          fontFamily: "Archivo"),
                     )
                   ],
                 ),
+                //*Email button
                 Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.orange[800],
-                            border: Border.all(width: 1, color: Colors.white),
-                            borderRadius: BorderRadius.circular(200)),
-                        width: 60,
-                        height: 60,
-                        child: const HeroIcon(
-                          HeroIcons.envelope,
-                          color: Colors.white,
-                          size: 30,
+                      child: GestureDetector(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.orange[800],
+                              border: Border.all(width: 1, color: Colors.white),
+                              borderRadius: BorderRadius.circular(200)),
+                          width: 60,
+                          height: 60,
+                          child: const HeroIcon(
+                            HeroIcons.envelope,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
+                        onTap: () {
+                          _navigateToEmail(context);
+                        },
                       ),
                     ),
                     const Text(
                       "Email us",
-                      style:
-                          TextStyle(color: Colors.white, fontFamily: "Archivo"),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 253, 109, 31),
+                          fontFamily: "Archivo"),
                     )
                   ],
                 ),
+                //*Live chat button
                 Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.orange[800],
-                            border: Border.all(width: 1, color: Colors.white),
-                            borderRadius: BorderRadius.circular(200)),
-                        width: 60,
-                        height: 60,
-                        child: const HeroIcon(
-                          HeroIcons.chatBubbleLeftRight,
-                          color: Colors.white,
-                          size: 30,
+                      child: GestureDetector(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.orange[800],
+                              border: Border.all(width: 1, color: Colors.white),
+                              borderRadius: BorderRadius.circular(200)),
+                          width: 60,
+                          height: 60,
+                          child: const HeroIcon(
+                            HeroIcons.chatBubbleLeftRight,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
+                        onTap: () {
+                          _navigateToLiveChat(context);
+                        },
                       ),
                     ),
                     const Text(
                       "Live Chat",
-                      style:
-                          TextStyle(color: Colors.white, fontFamily: "Archivo"),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 253, 109, 31),
+                          fontFamily: "Archivo"),
                     )
                   ],
                 )
               ],
             ),
-            //* Discover the right sneaker
+            //*Discover the right sneaker
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Text(
-                    " Discover \n the \n right sneaker",
+                    " Discover \n The \n Right \n Sneaker",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 22,
                       fontWeight: FontWeight.w800,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 56, 56, 56),
                     ),
                   ),
                 ),
@@ -186,7 +234,7 @@ class _NinjaCardState extends State<NinjaCard> {
                 ),
               ],
             ),
-            //* Shoe image collumn
+            //*Shoe column 1
             Column(
               children: [
                 Padding(
@@ -236,6 +284,7 @@ class _NinjaCardState extends State<NinjaCard> {
                 ),
               ],
             ),
+            //* Shoe column 2
             Column(
               children: [
                 Padding(
@@ -285,6 +334,7 @@ class _NinjaCardState extends State<NinjaCard> {
                 ),
               ],
             ),
+            //* Shoe column 3
             Column(
               children: [
                 Padding(
@@ -336,29 +386,6 @@ class _NinjaCardState extends State<NinjaCard> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class NewScreen extends StatelessWidget {
-  const NewScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text(
-          'PRODUCTS',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontFamily: 'Archivo',
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.orange[800],
-        elevation: 1,
       ),
     );
   }
