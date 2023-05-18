@@ -1,4 +1,6 @@
 //* Cart Page
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -26,22 +28,6 @@ class _CartState extends State<Cart> {
         backgroundColor: Colors.orange[800],
         elevation: 1,
       ),
-      body: SingleChildScrollView(
-        child:Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(children: [
-                Container(
-                  margin: const EdgeInsets.all(13),
-                  child: Image.asset(
-                    'assets/Images/Product-1.jpg',
-                    width: 220,
-                    ),
-                  )                                       
-            ],)
-          ],) ),
     );
-
   }
 }
